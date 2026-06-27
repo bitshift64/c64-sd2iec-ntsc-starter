@@ -1,0 +1,8 @@
+OPEN SOURCE NOTES
+
+This package is a downloader/starter card skeleton.
+It does not include commercial C64 game dumps.
+It downloads free/public/legal items from their original hosts and keeps source links in the script.
+
+Recommended release wording:
+"C64 SD2IEC NTSC clean starter card. Downloader only. No commercial game dumps included."

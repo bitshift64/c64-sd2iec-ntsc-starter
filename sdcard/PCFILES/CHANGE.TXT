@@ -1,0 +1,15 @@
+C64 SD2IEC NTSC Starter Card changelog
+
+V13
+- Toned down the public README and quick-load docs so the package reads as a general SD2IEC starter card.
+- Kept the optional music/demo sample under MUSIC\ADBDANCE without giving it prominent README emphasis.
+- Retained short uppercase visible filenames, FB boot-first behavior, and 7-Zip extraction support.
+
+V12
+- Removed the dedicated ADRIAN root folder.
+- Moved the optional music/demo sample to MUSIC\ADBDANCE.
+
+V11 and earlier
+- Added boot-first finalizer for LOAD"*",8.
+- Added all FB* FileBrowser variants at root.
+- Added short-name cleanup for C64-visible folders and files.

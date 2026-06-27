@@ -1,0 +1,23 @@
+C64 LOAD COMMANDS
+
+Quick start FileBrowser:
+LOAD"*",8
+RUN
+
+Direct FileBrowser:
+LOAD"FB",8
+RUN
+
+Directory:
+LOAD"$",8
+LIST
+
+Use FileBrowser to browse the folders:
+DEMOS
+MUSIC
+DISKMAG
+PUBLIC
+TOOLS
+GAMES
+GAMETEST
+BASIC
