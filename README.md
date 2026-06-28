@@ -22,12 +22,12 @@ This is a starter/downloader package for NTSC C64 users with SD2IEC hardware suc
 
 It is designed to:
 
-- Keep C64-visible folders short and readable.
-- Avoid long Windows filenames and awkward PETSCII display issues.
-- Download selected NTSC-friendly demos, diskmags, public-domain games, music/demo files, and tools.
-- Keep messy downloaded archives in `PCFILES` instead of cluttering the C64 side.
-- Put all CBM FileBrowser variants in the root.
-- Put `FB` first in the root directory for `LOAD"*",8` convenience.
+* Keep C64-visible folders short and readable.
+* Avoid long Windows filenames and awkward PETSCII display issues.
+* Download selected NTSC-friendly demos, diskmags, public-domain games, music/demo files, and tools.
+* Keep messy downloaded archives in `PCFILES` instead of cluttering the C64 side.
+* Put all CBM FileBrowser variants in the root.
+* Put `FB` first in the root directory for `LOAD"*",8` convenience.
 
 ## What this project is not
 
@@ -65,9 +65,9 @@ For best results, use a freshly formatted FAT32 SD card. The script tries to for
 
 ## Windows requirements
 
-- Windows PowerShell 5.1 or newer.
-- Internet access.
-- 7-Zip is strongly recommended.
+* Windows PowerShell 5.1 or newer.
+* Internet access.
+* 7-Zip is strongly recommended.
 
 The script can use Windows extraction for normal ZIP files, but 7-Zip handles difficult ZIP files, `.7z` archives, and `.gz` demo disk images more reliably.
 
@@ -85,20 +85,106 @@ TOOLS       SD2IEC/C64 tools
 PCFILES     Windows scripts, cache, logs, source links
 ```
 
-
 ## Downloaded content
 
 The downloader currently fetches selected files from sources such as:
 
-- CBM FileBrowser
-- DirPlus
-- TheFutureWas8Bit SD2IEC software pack
-- Scene World diskmag issues
-- Zimmers NTSC-fixed demos
-- Zimmers freely distributable/public-domain C64 games
-- A small optional music/demo sample filed under `MUSIC`
+* CBM FileBrowser
+* DirPlus
+* TheFutureWas8Bit SD2IEC software pack
+* Scene World diskmag issues
+* Zimmers NTSC-fixed demos
+* Zimmers freely distributable/public-domain C64 games
+* A small optional music/demo sample filed under `MUSIC`
 
 The script may break if upstream sites move, rename, or remove files. That is normal for a downloader-based project. Check `PCFILES\LOG.TXT` after running.
+
+## Contributing
+
+Contributions are welcome, especially from people testing on real NTSC C64 hardware with SD2IEC devices.
+
+There are a few helpful ways to contribute:
+
+* Report bugs or broken downloads.
+* Suggest new legal/free sources.
+* Confirm whether a file works on real NTSC hardware.
+* Confirm whether a file works properly from SD2IEC.
+* Improve documentation.
+* Improve the downloader scripts or folder cleanup process.
+
+## Suggesting new sources
+
+If you know of a good source that should be added, please open a GitHub Issue and choose the **New source request** template.
+
+Good source suggestions include:
+
+* Public domain software.
+* Freeware or open-source C64 releases.
+* Author-hosted downloads.
+* Official project download pages.
+* NTSC or PAL/NTSC confirmed files.
+* Files known to work on SD2IEC.
+* Tools, utilities, demos, diskmags, documentation, or homebrew releases.
+
+Please include as much detail as possible:
+
+* Source name.
+* Official source URL.
+* Type of content.
+* NTSC/PAL compatibility.
+* SD2IEC compatibility.
+* File format.
+* Distribution or licensing status.
+* Whether it has been tested on real hardware.
+* Suggested folder location.
+
+## Pull requests
+
+Pull requests are welcome, but please keep the purpose of this project in mind.
+
+Good pull requests might:
+
+* Fix broken download links.
+* Add a clearly legal/free source.
+* Improve short-name handling.
+* Improve `LOAD"*",8` behavior.
+* Improve documentation.
+* Improve compatibility with real SD2IEC hardware.
+* Clean up scripts without changing the project’s legal/distribution goals.
+
+Please do **not** submit pull requests that add:
+
+* Commercial C64 games.
+* Cracked commercial game packs.
+* TOSEC packs.
+* ROM collections.
+* Random archive mirrors with unclear permissions.
+* PAL-only material unless it is clearly marked and useful.
+* Files that require true 1541 drive emulation unless they are clearly documented as such.
+
+When adding a new downloadable source, prefer original or official sources whenever possible. Avoid rehosting third-party files in this repository.
+
+## Testing notes
+
+If you test this project on real hardware, please include details when reporting issues or submitting source suggestions:
+
+```text
+C64 model:
+NTSC or PAL:
+SD2IEC device:
+SD card size/format:
+File tested:
+Result:
+```
+
+Useful feedback includes:
+
+* Whether `LOAD"*",8` starts FileBrowser.
+* Whether `LOAD"FB",8` works.
+* Whether folders display cleanly in FileBrowser.
+* Whether files load from SD2IEC.
+* Whether demos or diskmags run correctly on NTSC hardware.
+* Whether any filenames display incorrectly on the C64.
 
 ## Developing or modifying the project
 
@@ -110,8 +196,18 @@ sdcard/
 
 For a public release, zip the **contents** of `sdcard`, not the `sdcard` folder itself. The release zip should extract directly to the root of the SD card.
 
+The downloader and helper scripts live under:
+
+```text
+sdcard/PCFILES/
+```
+
+The project is intentionally downloader-based. The repository should contain scripts, documentation, and the starter folder structure, not downloaded third-party archives or commercial software.
+
 ## Legal notes
 
 This project intentionally avoids bundling commercial game dumps. Do not submit pull requests that add commercial games, TOSEC packs, ROM collections, or other questionable copyrighted material.
 
 Freely available/publicly hosted files downloaded by the script remain the property of their original authors or distributors.
+
+The project license applies only to this repository’s original scripts, documentation, helper files, and folder layout.
