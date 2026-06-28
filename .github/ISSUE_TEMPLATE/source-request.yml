@@ -2,129 +2,127 @@ name: New source request
 description: Suggest a new legal/free source to add to the SD2IEC starter package
 title: "[SOURCE] "
 labels: ["source request"]
+
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a source. Please only submit sources that are legal to download and appropriate for this project.
 
-* type: markdown
-  attributes:
-  value: |
-  Thanks for suggesting a source. Please only submit sources that are legal to download and appropriate for this project.
+        Do not submit commercial game dump collections, cracked commercial game packs, or random mirrors with unclear permissions.
 
-  ```
-  Do not submit commercial game dump collections, cracked commercial game packs, or random mirrors with unclear permissions.
-  ```
+  - type: input
+    id: source-name
+    attributes:
+      label: Source name
+      description: Example: Zimmers NTSC demos, Scene World, etc.
+      placeholder: Zimmers NTSC demos
+    validations:
+      required: true
 
-* type: input
-  id: source-name
-  attributes:
-  label: Source name
-  description: Example: Zimmers NTSC demos, Scene World, etc.
-  placeholder: Source name
-  validations:
-  required: true
+  - type: input
+    id: source-url
+    attributes:
+      label: Source URL
+      description: Direct link to the official page or file source.
+      placeholder: https://example.com/source
+    validations:
+      required: true
 
-* type: input
-  id: source-url
-  attributes:
-  label: Source URL
-  description: Direct link to the official page or file source.
-  placeholder: https://example.com/source
-  validations:
-  required: true
+  - type: dropdown
+    id: content-type
+    attributes:
+      label: What type of content is this?
+      multiple: true
+      options:
+        - Tool / utility
+        - Demo
+        - Diskmag
+        - Public domain game
+        - Freeware / homebrew
+        - Music / SID related
+        - Documentation
+        - Other
+    validations:
+      required: true
 
-* type: dropdown
-  id: content-type
-  attributes:
-  label: What type of content is this?
-  multiple: true
-  options:
-  - Tool / utility
-  - Demo
-  - Diskmag
-  - Public domain game
-  - Freeware / homebrew
-  - Music / SID related
-  - Documentation
-  - Other
-  validations:
-  required: true
+  - type: dropdown
+    id: region
+    attributes:
+      label: Region compatibility
+      options:
+        - NTSC confirmed
+        - PAL/NTSC confirmed
+        - Unknown
+        - PAL only
+    validations:
+      required: true
 
-* type: dropdown
-  id: region
-  attributes:
-  label: Region compatibility
-  options:
-  - NTSC confirmed
-  - PAL/NTSC confirmed
-  - Unknown
-  - PAL only
-  validations:
-  required: true
+  - type: dropdown
+    id: sd2iec
+    attributes:
+      label: SD2IEC compatibility
+      options:
+        - Confirmed working on SD2IEC
+        - Likely compatible
+        - Unknown
+        - Requires true 1541 drive emulation
+        - Not SD2IEC compatible
+    validations:
+      required: true
 
-* type: dropdown
-  id: sd2iec
-  attributes:
-  label: SD2IEC compatibility
-  options:
-  - Confirmed working on SD2IEC
-  - Likely compatible
-  - Unknown
-  - Requires true 1541 drive emulation
-  - Not SD2IEC compatible
-  validations:
-  required: true
+  - type: dropdown
+    id: file-format
+    attributes:
+      label: File format
+      multiple: true
+      options:
+        - PRG
+        - D64
+        - D71
+        - D81
+        - SFX
+        - LNX
+        - ZIP/GZ/7Z archive
+        - Other
+    validations:
+      required: false
 
-* type: dropdown
-  id: file-format
-  attributes:
-  label: File format
-  multiple: true
-  options:
-  - PRG
-  - D64
-  - D71
-  - D81
-  - SFX
-  - LNX
-  - ZIP/GZ/7Z archive
-  - Other
-  validations:
-  required: false
+  - type: textarea
+    id: licensing
+    attributes:
+      label: Distribution/licensing status
+      description: Explain why this source is okay to include or download from this project.
+      placeholder: Public domain, freeware, open source, author-hosted download, official project download page, permission granted by author, etc.
+    validations:
+      required: true
 
-* type: textarea
-  id: licensing
-  attributes:
-  label: Distribution/licensing status
-  description: Explain why this source is okay to include or download from this project.
-  placeholder: Public domain, freeware, open source, author-hosted download, official project download page, permission granted by author, etc.
-  validations:
-  required: true
+  - type: textarea
+    id: hardware-tested
+    attributes:
+      label: Tested hardware
+      description: If tested, include C64 model, NTSC/PAL, SD2IEC device, and result.
+      placeholder: |
+        C64 model:
+        NTSC or PAL:
+        SD2IEC device:
+        Result:
+    validations:
+      required: false
 
-* type: textarea
-  id: hardware-tested
-  attributes:
-  label: Tested hardware
-  description: If tested, include C64 model, NTSC/PAL, SD2IEC device, and result.
-  placeholder: |
-  C64 model:
-  NTSC or PAL:
-  SD2IEC device:
-  Result:
-  validations:
-  required: false
+  - type: input
+    id: folder-location
+    attributes:
+      label: Suggested folder location
+      description: Example: DEMOS\NTSCFIX, PUBLIC\NTSC, TOOLS, DISKMAG
+      placeholder: DEMOS\NTSCFIX
+    validations:
+      required: false
 
-* type: input
-  id: folder-location
-  attributes:
-  label: Suggested folder location
-  description: Example: DEMOS\NTSCFIX, PUBLIC\NTSC, TOOLS, DISKMAG
-  placeholder: DEMOS\NTSCFIX
-  validations:
-  required: false
-
-* type: textarea
-  id: notes
-  attributes:
-  label: Notes
-  description: Anything else we should know?
-  validations:
-  required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else we should know?
+    validations:
+      required: false
